@@ -1,7 +1,3 @@
-#!/bin/bash
-
-# Proof of concept that uses WSL on Windows 10, and depends on python3 within WSL, and calls out to Powershell for a few Windows items.
-
 ls -1 appmanifest_*acf | tr '_' '.' | cut -d '.' -f 2 | sort -n | \
     while read appid
     do
@@ -25,7 +21,7 @@ for r in list(csv.reader(sys.stdin)):
                 powershell.exe '$wshell = New-Object -ComObject wscript.shell;  $wshell.AppActivate("Validating Steam files - 100% complete"); Sleep 1; $wshell.SendKeys("%{F4}");'
                 break
             else
-                sleep 5
+                sleep 1
             fi
         done
     done
